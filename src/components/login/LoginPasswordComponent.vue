@@ -1,6 +1,6 @@
 <template>
     <q-input class="input-margin" v-model="password" filled :type="isPwd ? 'password' : 'text'" :label="label"
-        color="black" lazy-rules :rules="rules">
+        color="black" reactive-rules :rules="rules">
         <template v-slot:append>
             <q-icon :name="isPwd ? 'visibility_off' : 'visibility'" class="cursor-pointer" @click="isPwd = !isPwd">
             </q-icon>

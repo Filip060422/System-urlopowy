@@ -1,6 +1,6 @@
 <template>
     <h1>Ustaw nowe hasło</h1>
-    <q-form action="/#/">
+    <q-form action="/#/PasswordChanged">
         <LoginPasswordComponent :label="'Aktualne hasło'" style="margin-bottom: 5px;" />
         <LoginPasswordComponent :label="'Nowe hasło'" v-model="newPassword" :rules="rules2" />
         <p><span :class="{ 'hidden': !isVisible }">Twoje hasło jest bezpieczne i silne</span></p>
@@ -10,7 +10,7 @@
         </div>
         <LoginPasswordComponent :label="'Potwierdź hasło'" v-model="confirmPassword"
             style="margin-top: 5px; margin-bottom: 10px;" :rules="rules" />
-        <ButtonComponent @click="funkcja" :label="'ZMIEŃ HASŁO'" />
+        <ButtonComponent @click="checkPasswords" :label="'ZMIEŃ HASŁO'" />
     </q-form>
 </template>
 
@@ -28,8 +28,8 @@ const isVisible = ref(false);
 
 const newPassword = ref('');
 const confirmPassword = ref('');
-const rules = ref([val => val && val.length > 0 || 'Proszę podać hasło'])
-const rules2 = ref([val => val && val.length > 0 || 'Proszę podać hasło'])
+const rules = ref([val => val && val.length > 0 || 'Proszę podać hasło']);
+const rules2 = ref([val => val && val.length > 0 || 'Proszę podać hasło']);
 
 watchEffect(() => {
     if (/(?=.{8,})/.test(newPassword.value)) {
@@ -52,7 +52,7 @@ watchEffect(() => {
 
     if (/^(?=.*[A-Z])(?=.*[#*!@?])(?=.{8,}$)/.test(newPassword.value)) {
         isVisible.value = true
-        rules2.value = ''
+        rules2.value = ref(null);
     } else {
         isVisible.value = false;
         rules2.value = [val => val && val.length <= 0 || 'Spełnij wymogi hasła']
@@ -60,9 +60,11 @@ watchEffect(() => {
 })
 
 
-const funkcja = () => {
-    if (newPassword.value !== confirmPassword.value || confirmPassword.value === '') {
+const checkPasswords = () => {
+    if (newPassword.value !== confirmPassword.value) {
         rules.value = [val => val && val.length <= 0 || 'Hasła nie są identyczne'];
+    } else if (confirmPassword.value === '') {
+        rules = ref([val => val && val.length > 0 || 'Proszę podać hasło']);
     } else {
         rules.value = []
     }
@@ -93,8 +95,7 @@ h1 {
 p {
     color: #33B600;
     font: normal normal 500 14px/21px Poppins;
-    // height: 21px;
-    margin-top: 5px;
+    height: 21px;
 }
 
 .checkbox {
