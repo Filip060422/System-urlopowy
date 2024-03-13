@@ -4,7 +4,7 @@
     <p>Na Twój adres e-mail wyślemy kod do zmiany hasła</p>
     <p>Wpisz przesłany kod poniżej:</p>
     <h2>Kod</h2>
-    <q-form action="/#/" @submit="onSubmit">
+    <q-form action="/#/newpassword" @submit="onSubmit">
         <div class="code-boxes flex justify-between">
             <q-input v-for="(input, index) in inputs" :key="index" class="code-box flex items-center" outlined
                 v-model="input.text" mask="#" input-style="text-align: center"></q-input>
