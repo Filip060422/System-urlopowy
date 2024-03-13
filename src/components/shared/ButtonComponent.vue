@@ -10,7 +10,6 @@ const label = ref('');</script>
     background: $button;
     height: 60px;
     color: #FFFFFF;
-    // margin-top: 20px;
     font: normal normal 600 14px/16px Poppins;
     letter-spacing: 1.25px
 }
