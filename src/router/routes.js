@@ -16,6 +16,17 @@ const routes = [
         path: "/NewPassword",
         component: () => import("pages/login/NewPassword.vue"),
       },
+      {
+        path: "/PasswordChanged",
+        component: () => import("pages/login/PasswordChanged.vue"),
+      },
+    ],
+  },
+  {
+    path: "/main",
+    component: () => import("layouts/main/MainPageLayout.vue"),
+    children: [
+      { path: "", component: () => import("pages/main/RequestsPage.vue") },
     ],
   },
 

@@ -1,8 +1,8 @@
 <template>
   <h1>Logowanie</h1>
-  <q-form action="" @submit="onSubmit">
+  <q-form action="/#/main">
     <LoginEmailComponent />
-    <LoginPasswordComponent />
+    <LoginPasswordComponent :label="'Hasło'" />
     <div class=" flex justify-between items-center">
       <q-checkbox size="24px" v-model="val" color="black" class="checkbox">Zapamiętaj mnie</q-checkbox>
       <a href="/#/forgotpassword">Nie pamiętam hasła</a>

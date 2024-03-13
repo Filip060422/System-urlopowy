@@ -1,6 +1,6 @@
 <template>
     <h1>Nie pamiętam hasła</h1>
-    <q-form action="/#/ChangePassword" @submit="onSubmit">
+    <q-form action="/#/ChangePassword">
         <LoginEmailComponent />
         <p>Na Twój adres e-mail wyślemy kod do zmiany hasła</p>
         <LoginButtonComponent :label="'WYŚLIJ'" />
