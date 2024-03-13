@@ -49,7 +49,7 @@
 
 <script setup>
 const { box } = defineProps({
-    box: String
+    box: Object
 });
 
 const color = box.color;
