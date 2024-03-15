@@ -1,5 +1,5 @@
 <template>
-    <div class="box" style="height: 650px;" :style="{ borderColor: color }">
+    <div class="box" style="height: 600px;" :style="{ borderColor: color }">
         <div class="box-header flex items-center">
             <h2>{{ box.title }}</h2>
             <div class="circle-box flex flex-center" :style="{ backgroundColor: color }">1</div>

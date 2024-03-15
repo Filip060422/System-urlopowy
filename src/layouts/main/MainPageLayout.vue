@@ -18,7 +18,7 @@
                             :notification="title" />
                         <div class="notifications-footer flex justify-end">
                             <a href="#">Zobacz wszystkie</a>
-                        </div>
+                        </div> 
                     </q-menu>
                 </q-btn>
                 <q-btn @click="showSettings" padding="0" outline>
